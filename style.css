@@ -1,0 +1,287 @@
+body {
+  background-color: black;
+  color: white;
+}
+.main {
+    min-height: 100vh;
+}
+.card {
+    background-color: #3858c2;
+    box-shadow: 0 15px 25px #00000038;
+}
+.shadow {
+    box-shadow: 0 15px 25px #00000038;
+}
+/* Form */
+.login-box {
+    /* position: absolute;
+    top: 50%;
+    left: 50%; */
+    width: 100%;
+    /* transform: translate(-50%, -50%); */
+    background: #3858c2;
+    box-sizing: border-box;
+    box-shadow: 0 15px 25px #00000038;
+    border-radius: 10px;
+  }
+  
+  .login-box .user-box {
+    position: relative;
+  }
+  
+  .login-box .user-box input {
+    width: 100%;
+    padding: 10px 0;
+    font-size: 16px;
+    color: #fff;
+    margin-bottom: 30px;
+    border: none;
+    border-bottom: 1px solid #fff;
+    outline: none;
+    background: transparent;
+  }
+  
+  .login-box .user-box label {
+    position: absolute;
+    top: 0;
+    left: 0;
+    padding: 10px 0;
+    font-size: 16px;
+    color: #fff;
+    pointer-events: none;
+    transition: .5s;
+  }
+  
+  .login-box .user-box input:focus ~ label,
+  .login-box .user-box input:valid ~ label {
+    top: -20px;
+    left: 0;
+    color: #d6d6d6;
+    font-size: 12px;
+  }
+  
+  .expense_btn,.deposit_btn {
+    position: relative;
+    display: inline-block;
+    padding: 10px 20px;
+    color: #ffffff;
+    background: #284196;
+    font-size: 16px;
+    text-decoration: none;
+    text-transform: uppercase;
+    overflow: hidden;
+    transition: .5s;
+    margin: 5px;
+    letter-spacing: 4px;
+    border-radius: 5px;
+    border: none;
+    cursor: pointer;
+  }
+  
+  .deposit_btn:hover {
+    background: #03f40f;
+    color: #fff;
+    border-radius: 5px;
+    box-shadow: 0 0 5px #03f40f,
+                0 0 25px #03f40f,
+                0 0 50px #03f40f,
+                0 0 100px #03f40f;
+  }
+  .expense_btn:hover {
+    background: #ee4646;
+    color: #fff;
+    border-radius: 5px;
+    box-shadow: 0 0 5px #ee4646,
+                0 0 25px #ee4646,
+                0 0 50px #ee4646,
+                0 0 100px #ee4646;
+  }
+  
+  .login-box button span {
+    position: absolute;
+    display: block;
+  }
+
+  
+  .login-box button span:nth-child(1) {
+    bottom: 2px;
+    left: -100%;
+    width: 100%;
+    height: 2px;
+    background: linear-gradient(90deg, transparent, #03f40f);
+    animation: btn-anim1 2s linear infinite;
+  }
+
+    input[type=date]:required:invalid::-webkit-datetime-edit {
+        color: transparent;
+    }
+    input[type=date]:focus::-webkit-datetime-edit {
+        color: black !important;
+    }
+
+
+
+    /* Table */
+    .thead {
+        background-color: #3858c2;
+        color: #fff;
+    }
+
+    /* Delete button */
+
+    /* Edit button */
+    /* From uiverse.io by @Ali-Tahmazi99 */
+.update_btn {
+    display: inline-block;
+    width: 50px;
+    height: 25px;
+    font-size: 12px;
+    border-radius: 3px;
+    cursor: pointer;
+    color: #3858c2;
+    border: 1px solid #3858c2;
+    position: relative;
+    overflow: hidden;
+    transition: all 0.5s ease-in;
+    z-index: 1;
+   }
+   
+   .update_btn::before,
+   .update_btn::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    width: 0;
+    height: 100%;
+    transform: skew(15deg);
+    transition: all 0.5s;
+    overflow: hidden;
+    z-index: -1;
+   }
+   
+   .edit_btn::before {
+    left: -10px;
+    background: #3858c2;
+    margin-left: 4px;
+   }
+   .edit_btn {
+    margin-right: 4px;
+   }
+   @media only screen and (max-width: 600) {
+    .edit_btn {
+        margin-right: 0px;
+    }
+   }
+   .edit_btn::after {
+    right: -10px;
+    background: #3858c2;
+   }
+   .delete_btn {
+    transition: 0.2s border;
+   }
+   .delete_btn:hover {
+    border: 1px solid #c2521e;
+   }
+   .delete_btn::before {
+    left: -10px;
+    background: #c2521e;
+   }
+
+   .delete_btn::after {
+    right: -10px;
+    background: #c2521e;
+   }
+   
+   .update_btn:hover::before,
+   .update_btn:hover::after {
+    width: 75%;
+   }
+   
+   .update_btn:hover span {
+    color: #ffffff;
+    transition: 0.3s;
+   }
+   
+   .update_btn {
+    color: #3858c2;
+    font-size: 12px;
+    transition: all 0.3s ease-in;
+   }
+   .update_btn:hover {
+    color: #ffffff;
+   }
+   
+   .expense {
+    color: red;
+   }
+   .deposit {
+    color: green;
+   }
+
+   .disable input {
+    pointer-events: none;
+   }
+
+
+   .model {
+    width: 100%;
+    height: 100vh;
+    background-color: #000000c7;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    display: none;
+    position: absolute;
+    z-index: 2;
+   }
+   .model.active {
+    display: flex;
+   }
+
+   .model .card {
+    width: 300px;
+   }
+   .model input {
+      margin-bottom: 5px;
+      padding: 8px;
+      border-radius: 5px;
+      border: none;
+   }
+
+   .model_btn{
+    border: none;
+    padding: 10px;
+    margin-bottom: 5px;
+    cursor: pointer;
+    border-radius: 5px;
+   }
+
+   .model #submitEditedData {
+    margin-top: 10px;
+    background-color: #284196;
+    color: #fff;
+    transition: 0.3s;
+   }
+
+   .model #submitEditedData:hover {
+    background-color: #1194ff;
+    color: #fff;
+   }
+
+/* Pervious project */
+/* body {
+    background-color: black;
+    color: #fff;
+}
+
+#transactionHistory >  span {
+    margin-right: 50px;
+}
+
+.incomeAdd {
+    color: green;
+}
+
+.expenseAdd {
+    color: red;
+} */
