@@ -160,7 +160,7 @@ const filtersData = (timeRange, infoType) => {
 
     return dataToShow;
 }
-
+   
 const updateTable = () => {
     let html = ``;
     const allData = filtersData(timeRange.value, infoType.value);
@@ -171,10 +171,10 @@ const updateTable = () => {
                     <tr class=${type === 'expense' ? 'expense disable' : 'deposit disable'}>
                         <td>${date}</td>
                         <td>${description}</td>
-                        <td class="text-center">৳${amount}</td>
+                        <td class="text-center">৳ ${amount}</td>
                         <td><span>
-                        <button class="delete_btn update_btn float-right" data-id='${id}'>Delete</button>
-                        <button class="edit_btn update_btn float-right" data-id='${id}'>Edit</button>
+                        <button class="delete_btn update_btn float-right btn btn-sm px-4 py-2 mr-2" data-id='${id}'>Delete</button>
+                        <button class="edit_btn update_btn float-right btn btn-sm px-4 py-2 mr-2" data-id='${id}'>Edit</button>
                     </td>
                     `
         })

@@ -1,4 +1,140 @@
-body {
+@import url('https://fonts.googleapis.com/css?family=Poppins:wght@400;500;600;700&display=swap');
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Poppins', sans-serif;
+}
+
+.expence-tracker-app {
+  /* background-color: #d1d1d1; */
+}
+
+.main-container {
+  gap: 1vw;
+}
+
+@media only screen and (max-width: 600px) {
+  .main-container {
+    gap: 2vw;
+  }
+}
+
+.sample-color {
+  background-color: #eeeeee;
+
+}
+
+.data-box-container {
+  gap: 1vw;
+}
+
+.data-box-container > div {
+  flex: 1;
+  border-radius: 10px;
+  width: 100%;
+  box-shadow: 1px 6px 14px -1px rgba(212,212,212,0.75);
+-webkit-box-shadow: 1px 6px 14px -1px rgba(212,212,212,0.75);
+-moz-box-shadow: 1px 6px 14px -1px rgba(212,212,212,0.75);
+}
+
+.left-box {
+  background-color: #ddf0f1;
+}
+
+.middle-box {
+  background-color: #f8eee2;
+}
+
+.right-box {
+  background-color: #eef0fa;
+  
+}
+
+.data-box-container > div h2 {
+  font-size: 28px;
+  font-weight: bolder;
+  margin-bottom: 0;
+}
+
+.data-box-container > div p {
+  margin-bottom: 0;
+  font-size: 13px;
+  color: rgb(155, 155, 155);
+}
+
+.data-box-container .box-icon img {
+  width: 50px;
+  height: 50px;
+}
+
+@media only screen and (max-width: 600px) {
+  .data-box-container {
+    gap: 2vw;
+  }
+  .data-box-container > div h2 {
+    font-size: 24px;
+  }
+  .data-box-container > div h5 {
+    font-size: 15px;
+  }
+  .data-box-container .box-icon img {
+    width: 40px;
+    height: 40px;
+  }
+}
+
+.activity-container {
+  background-color: #ddf0f1;
+  border-radius: 10px;
+  box-shadow: 1px 6px 14px -1px rgba(212,212,212,0.75);
+-webkit-box-shadow: 1px 6px 14px -1px rgba(212,212,212,0.75);
+-moz-box-shadow: 1px 6px 14px -1px rgba(212,212,212,0.75);
+}
+
+.activity-container select, .activity-container button {
+  border: none;
+  border-radius: 5px;
+  font-size: 14px;
+
+}
+
+.activity-container select, .action-box button {
+  background-color: #c4eaee;
+  /* sdf */
+}
+
+.activity-container select, .action-box button {
+  background-color: #c4eaee;
+}
+
+.action-box button:hover {
+  background-color: #b9e6eb;
+  box-shadow: 1px 6px 14px -1px rgba(212,212,212,0.75);
+  -webkit-box-shadow: 1px 6px 14px -1px rgba(212,212,212,0.75);
+  -moz-box-shadow: 1px 6px 14px -1px rgba(212,212,212,0.75);
+}
+
+
+.table button:hover {
+  background-color: #c4eaee;
+}
+
+.activity-bar > div {
+  flex: 1;
+}
+
+
+
+
+
+
+
+
+
+
+/* body {
   background-color: black;
   color: white;
 }
@@ -12,13 +148,10 @@ body {
 .shadow {
     box-shadow: 0 15px 25px #00000038;
 }
-/* Form */
+
 .login-box {
-    /* position: absolute;
-    top: 50%;
-    left: 50%; */
+
     width: 100%;
-    /* transform: translate(-50%, -50%); */
     background: #3858c2;
     box-sizing: border-box;
     box-shadow: 0 15px 25px #00000038;
@@ -121,16 +254,13 @@ body {
 
 
 
-    /* Table */
+
     .thead {
         background-color: #3858c2;
         color: #fff;
     }
 
-    /* Delete button */
 
-    /* Edit button */
-    /* From uiverse.io by @Ali-Tahmazi99 */
 .update_btn {
     display: inline-block;
     width: 50px;
@@ -266,22 +396,4 @@ body {
    .model #submitEditedData:hover {
     background-color: #1194ff;
     color: #fff;
-   }
-
-/* Pervious project */
-/* body {
-    background-color: black;
-    color: #fff;
-}
-
-#transactionHistory >  span {
-    margin-right: 50px;
-}
-
-.incomeAdd {
-    color: green;
-}
-
-.expenseAdd {
-    color: red;
-} */
+   } */
