@@ -7,6 +7,11 @@
     font-family: 'Poppins', sans-serif;
 }
 
+body {
+  position: relative;
+  background-color: #000;
+}
+
 .expence-tracker-app {
   /* background-color: #d1d1d1; */
 }
@@ -23,7 +28,6 @@
 
 .sample-color {
   background-color: #eeeeee;
-
 }
 
 .data-box-container {
@@ -34,9 +38,10 @@
   flex: 1;
   border-radius: 10px;
   width: 100%;
-  box-shadow: 1px 6px 14px -1px rgba(212,212,212,0.75);
--webkit-box-shadow: 1px 6px 14px -1px rgba(212,212,212,0.75);
--moz-box-shadow: 1px 6px 14px -1px rgba(212,212,212,0.75);
+  /* box-shadow: 0px 7px 55px 5px rgba(125,125,125,0.22);
+  -webkit-box-shadow: 0px 7px 55px 5px rgba(125,125,125,0.22);
+  -moz-box-shadow: 0px 7px 55px 5px rgba(125,125,125,0.22); */
+  /* border: 1px solid rgb(202, 202, 202); */
 }
 
 .left-box {
@@ -88,25 +93,28 @@
 .activity-container {
   background-color: #ddf0f1;
   border-radius: 10px;
-  box-shadow: 1px 6px 14px -1px rgba(212,212,212,0.75);
--webkit-box-shadow: 1px 6px 14px -1px rgba(212,212,212,0.75);
--moz-box-shadow: 1px 6px 14px -1px rgba(212,212,212,0.75);
+  /* box-shadow: 0px 7px 55px 5px rgba(125,125,125,0.22);
+  -webkit-box-shadow: 0px 7px 55px 5px rgba(125,125,125,0.22);
+  -moz-box-shadow: 0px 7px 55px 5px rgba(125,125,125,0.22); */
 }
 
-.activity-container select, .activity-container button {
+.activity-bar select, .activity-container button {
   border: none;
   border-radius: 5px;
   font-size: 14px;
+}
+
+.activity-bar select, .action-box button {
+  background-color: #c4eaee;
 
 }
 
-.activity-container select, .action-box button {
+.activity-bar select, .action-box button {
   background-color: #c4eaee;
-  /* sdf */
 }
 
-.activity-container select, .action-box button {
-  background-color: #c4eaee;
+.activity-bar > div {
+  flex: 1;
 }
 
 .action-box button:hover {
@@ -116,21 +124,98 @@
   -moz-box-shadow: 1px 6px 14px -1px rgba(212,212,212,0.75);
 }
 
-
-.table button:hover {
-  background-color: #c4eaee;
+@media only screen and (max-width: 600px) {
+  .action-box button, .activity-bar select, .tr-actions button {
+    font-size: 12px;
+  }
 }
 
-.activity-bar > div {
-  flex: 1;
+table  tr > td {
+  font-size: 14px;
+}
+
+@media only screen and (max-width: 600px) {
+  table  tr > td, table th {
+    font-size: 12px;
+  }
 }
 
 
+.tr-button button img {
+  width: 20px;
+  height: 20px;
+  cursor: pointer;
+  transition: 0.3s;
+}
 
 
+.tr-button button img:hover {
+  transform: scale(1.1);
+}
+
+.tr-button button {
+  outline: none;
+}
+
+@media only screen and (max-width: 600px) {
+  .tr-button button img {
+    width: 17px;
+    height: 17px;
+  }
+}
+
+.expense-row {
+  background-color: rgb(255, 229, 229);
+}
 
 
+.model {
+  width: 100%;
+  height: 100vh;
+  background-color: #000000c7;
+  align-items: center;
+  justify-content: center;
+  display: none;
+  position: absolute;
+  z-index: 2;
+ }
+ /* .model.active {
+  display: flex;
+ } */
 
+ .depositExpenceModel.active {
+  display: flex;
+ }
+
+ .model .card {
+  width: 300px;
+ }
+ .model input {
+    margin-bottom: 5px;
+    padding: 8px;
+    border-radius: 5px;
+    border: none;
+ }
+
+ .model_btn{
+  border: none;
+  padding: 10px;
+  margin-bottom: 5px;
+  cursor: pointer;
+  border-radius: 5px;
+ }
+
+ .model #submitEditedData {
+  margin-top: 10px;
+  background-color: #284196;
+  color: #fff;
+  transition: 0.3s;
+ }
+
+ .model #submitEditedData:hover {
+  background-color: #1194ff;
+  color: #fff;
+ }
 
 
 

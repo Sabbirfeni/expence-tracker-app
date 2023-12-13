@@ -13,8 +13,66 @@
   </head>
   <body>
 
-    <div class="model">
+    <!-- Deposit Expence Model -->
+<div class="modal fade" id="exampleModalLong" tabindex="-1" role="dialog" aria-labelledby="exampleModalLongTitle" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <form>
+        <div class="modal-body depositExpenceModel">
+          <div class="form-group">
+            <label for="date">Date</label>
+            <input type="date" class="form-control" id="date" aria-describedby="emailHelp" placeholder="">
+          </div>
+          <div class="form-group">
+              <label for="amount">Amount</label>
+              <input type="number" class="form-control" id="amount" placeholder="">
+          </div>
+          <div class="form-group">
+              <label for="amodescriptionunt">Description</label>
+              <input type="text" class="form-control" id="description" placeholder="">
+          </div>
+        </div>
+      </form>
+      <div class="modal-footer">
+        <!-- <button type="submit" id="" class="btn btn-primary done_btn">Done</button> -->
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+        <button type="button" id="" class="btn btn-primary done_btn">Save</button>
+      </div>
     </div>
+  </div>
+</div>
+
+<!-- General Model -->
+<div class="modal fade" id="changingModel" tabindex="-1" role="dialog" aria-labelledby="exampleModalLongTitle" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content generalModel">
+      
+    </div>
+  </div>
+</div>
+
+    <!-- <form>
+      <div class="user-box">
+        <input id="date" name="" type="date">
+        <label>Date</label>
+      </div>
+      <div class="user-box">
+        <input id="amount" name="" type="number">
+        <label>Amount</label>
+      </div>
+      <div class="user-box">
+        <input id="description" name="" type="text">
+        <label>Description</label>
+      </div>
+      <div class="d-flex align-items-center justify-content-center flex-wrap">
+        
+        <button id="done_btn" class="done_btn" type="submit">
+          Done
+        <span></span>
+        </button>
+      </div>
+    </form> -->
+
 
 
     <div class="expence-tracker-app container mt-5">
@@ -62,40 +120,41 @@
           </div>
 
         </div>
-        <h5>Table</h5>
-        <div class="activity-container p-4">
-          <!-- Activity bar -->
-          <div class="activity-bar d-flex">
-            <!-- Filter box -->
-            <div class="filter-box flex-fill ">
-              <select class="form-select p-2 mr-2" aria-label="Default select example">
-                <option value="all">All</option>
-                <option value="expense">Expense</option>
-                <option value="deposit">Deposit</option>
-              </select>
-              <select class="form-select p-2" aria-label="Default select example">
-                <option value="all">All Time</option>
-                <option value="7">Last 7 days</option>
-                <option value="30">Last 30 days</option>
-                <option value="180">Last 6 Months</option>
-                <option value="365">Last Year</option>
-              </select>
-            </div>
-            <!-- Action box -->
-            <div class="action-box flex-fill d-flex justify-content-end">
-              <div>
-                <button type="button" class="btn btn-sm px-4 py-2 mr-2">Deposit</button>
-                <button type="button" class="btn btn-sm px-4 py-2">Expence</button>
-              </div>
 
-            </div>
+        <!-- Activity bar -->
+        <div class="activity-bar d-flex flex-md-row flex-column">
+          <!-- Filter box -->
+          <div class="d-flex align-items-center justify-content-md-start justify-content-center">
+            <select class="form-select p-2 mr-2 infoType" aria-label="Default select example">
+              <option value="all">All</option>
+              <option value="expense">Expense</option>
+              <option value="deposit">Deposit</option>
+            </select>
+            <select class="form-select p-2 timeRange" aria-label="Default select example">
+              <option value="all">All Time</option>
+              <option value="7">Last 7 days</option>
+              <option value="30">Last 30 days</option>
+              <option value="180">Last 6 Months</option>
+              <option value="365">Last Year</option>
+            </select>
           </div>
+          <!-- Action box -->
+          <div class="action-box flex-fill d-flex justify-content-md-end justify-content-center mt-md-0 mt-2">
+            <div class="">
+              <button type="button" class="btn btn-sm px-3 px-md-4 py-2 mr-2 deposit_btn " id="deposit" data-toggle="modal" data-target="#exampleModalLong">Deposit</button>
+              <button type="button" class="btn btn-sm px-3 px-md-4 py-2  expense_btn" id="expense" data-toggle="modal" data-target="#exampleModalLong">Expence</button>
+            </div>
+
+          </div>
+        </div>
+        <div class="activity-container p-3 p-lg-4">
+
 
           <!-- Data table -->
           <div>
-            <div class="row mt-1 mt-lg-4">
+            <div class="row">
               <div class="col-12 table-responsive">
-                <table class="table rounded">
+                <table class="table rounded table-striped table-borderless">
                   <thead class="thead">
                     <tr>
                       <th scope="col">Date</th>
@@ -113,30 +172,34 @@
       </div>
     </div>
 
-<div>-</div>
-<div>-</div>
-<div>-</div>
-<div>-</div>
-<div>-</div>
-<div>-</div>
-<div>-</div>
-<div>-</div>
-<div>-</div>
+<!-- Button trigger modal -->
 
-<div>-</div>
-<div>-</div>
-<div>-</div>
-<div>-</div>
-<div>-</div>
-<div>-</div>
-<div>-</div>
-<div>-</div>
-<div>-</div>
-<div>-</div>
-<div>-</div>
-<div>-</div>
 
-    
+
+
+
+
+
+
+
+
+
+
+
+
+
+    <!-- Previous project 1 -->
+<!-- 
+<div>-</div>
+<div>-</div>
+<div>-</div>
+<div>-</div>
+<div>-</div>
+<div>-</div>
+<img src="./images/edit.png" alt="">
+<img src="./images/delete.png" alt="">
+<button class="delete_btn update_btn float-right btn btn-sm px-4 py-2 mr-2" data-id='${id}'>Delete</button>
+<button class="edit_btn update_btn float-right btn btn-sm px-4 py-2 mr-2" data-id='${id}'>Edit</button>
     <div class="p-4">
       <div class="container">
         <div class="row">
@@ -229,11 +292,11 @@
     </div>
 
 
+ -->
 
 
 
-
-    <!-- Previous project -->
+    <!-- Previous project 2 -->
     <!-- <div class="container d-flex align-items-center justify-content-center">
         <div>
             <h1 class="mb-3 text-center">Expense Tracker</h1>

@@ -5,6 +5,8 @@ let MAIN_STORAGE = JSON.parse(localStorage.getItem('mainStorage'));
 const dateInput = document.querySelector('#date'),
 amountInput = document.querySelector('#amount'),
 descriptionInput = document.querySelector('#description'),
+
+
 expenseBtn = document.querySelector('#expense'),
 depositBtn = document.querySelector('#deposit'),
 totalEarnings = document.querySelector('.totalEarnings'),
@@ -15,26 +17,41 @@ tbody = document.querySelector('.tbody'),
 timeRange = document.querySelector('.timeRange'),
 editBtn = document.querySelector('.edit_btn'),
 delete_btn = document.querySelector('.delete_btn'),
-modelContainer = document.querySelector('.model');
+// modelContainer = document.querySelector('.modal-body');
+depositExpenceModel = document.querySelector('.depositExpenceModel'),
+generalModel = document.querySelector('.generalModel'),
+done_btn = document.querySelector('.done_btn');
 
 document.body.addEventListener('click', (e) => {
+    console.log(e.target.parentElement)
     // Show model to edit
-    if(e.target.innerHTML == 'Edit') {
-        const parent = e.target;
+    if(e.target.id == 'edit_btn') {
+        const parent = e.target.parentElement;
         const id = parent.getAttribute('data-id');
         const editableData = MAIN_STORAGE.find(data => data.id == id);
-        modelContainer.classList.add('active')
+
         const model = `
-                        <div class="card p-4">
-                            <label for="">Amount</label>
-                            <input type="number" id='updatedAmount' value='${editableData.amount}'>
-                            <label for="">Description</label>
-                            <input type="text" id='updatedDescription' value='${editableData.description}'>
-                            <button type='submit' value='Submit' id='submitEditedData' class='model_btn border-0 bg-primary' data-id='${editableData.id}'>Save</button>
-                            <button type='submit' value='Cancel' id='cancelEdit' class='btn-warning model_btn border-0 text-white'>Cancel</button>
+                    <form>
+                        <div class="modal-body">
+                            <div class="form-group">
+                                <label for="amount">Amount</label>
+                                <input type="number" class="form-control" id='updatedAmount' value='${editableData.amount}' placeholder="">
+                            </div>
+                            <div class="form-group">
+                                <label for="amodescriptionunt">Description</label>
+                                <input type="text" class="form-control"  id='updatedDescription' value='${editableData.description}'  placeholder="">
+                            </div>
                         </div>
+                    </form>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                        <button type="submit" class="btn btn-primary" id='submitEditedData' data-id='${editableData.id}'>Save</button>
+                    </div>
+                        
+
+                       
                     `
-        modelContainer.innerHTML = model
+                    generalModel.innerHTML = model
     }
     // Save edited data
     if(document.querySelector('#submitEditedData'))  {
@@ -44,6 +61,7 @@ document.body.addEventListener('click', (e) => {
         const id = saveBtn.getAttribute('data-id');
 
         saveBtn.addEventListener('click', () => {
+            saveBtn.setAttribute('data-dismiss',"modal")
             MAIN_STORAGE.forEach(data => {
                 if(data.id == id) {
                     data.amount = updatedAmount.value;
@@ -51,26 +69,30 @@ document.body.addEventListener('click', (e) => {
                 }
             })
             localStorage.setItem('mainStorage', JSON.stringify(MAIN_STORAGE));
-            modelContainer.classList.remove('active');
+
             updateTable();
             updateDashboard();
         })
     }
     
     // Confirm to delete
-    if(e.target.innerHTML == 'Delete') {
-        const parent = e.target;
+    if(e.target.id == 'delete_btn') {
+        const parent = e.target.parentElement;
         const id = parent.getAttribute('data-id');
+        console.log(id)
         const editableData = MAIN_STORAGE.find(data => data.id == id);
-        modelContainer.classList.add('active')
         const model = `
-                        <div class="card p-4">
-                            <h3 class='text-center mb-4'>Are you sure?</h3>
-                            <button type='submit' id='delete' class='model_btn bg-warning text-white' data-id='${editableData.id}'>Yes</button>
-                            <button type='submit' id='cancelEdit' class='model_btn btn-primary'>No</button>
+                    <div class="modal-content">
+                        <div class="modal-body depositExpenceModel">
+                            <h4>Are you sure?</h4>
                         </div>
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancel</button>
+                            <button class="btn btn-primary" id='delete' data-id='${editableData.id}'>Yes</button>
+                        </div>
+                    </div>
                     `
-        modelContainer.innerHTML = model
+        generalModel.innerHTML = model
     }
 
     // Delete data
@@ -78,34 +100,60 @@ document.body.addEventListener('click', (e) => {
         const yesBtn = document.querySelector('#delete');
         const id = yesBtn.getAttribute('data-id');
         yesBtn.addEventListener('click', () => {
+            yesBtn.setAttribute('data-dismiss',"modal")
             let newData = MAIN_STORAGE.filter(data => data.id != id);
             MAIN_STORAGE = newData;
 
             localStorage.setItem('mainStorage', JSON.stringify(MAIN_STORAGE));
-            modelContainer.classList.remove('active');
             updateTable();
             updateDashboard();
         })
     }
 
 
-    if(document.querySelector('#cancelEdit'))  {
-        const cancelEdit = document.querySelector('#cancelEdit');
-        cancelEdit.addEventListener('click', () => {
-            modelContainer.classList.remove('active')
-        })
-    }
+    // if(document.querySelector('#cancelEdit'))  {
+    //     const cancelEdit = document.querySelector('#cancelEdit');
+    //     cancelEdit.addEventListener('click', () => {
+    //         modelContainer.classList.remove('active')
+    //     })
+    // }
 
  })
 
-const addExpenseToStorage = (e) => {
+//  const addDepositToStorage = (e) => {
+//     console.log(e)
+//     e.preventDefault()
+//     if(dateInput.value != '' && amountInput.value != '' && descriptionInput.value != '') {
+//         const id = Math.floor(Math.random() * 10000);
+//         const depositInfo = {
+//             id,
+//             type: 'deposit',
+//             date: dateInput.value,
+//             amount: Number.parseInt(amountInput.value),
+//             description: descriptionInput.value
+//         }
+//         MAIN_STORAGE.unshift(depositInfo);
+    
+//         localStorage.setItem('mainStorage', JSON.stringify(MAIN_STORAGE));
+//         updateDashboard();
+//         updateTable();
+//         dateInput.value = amountInput.value = descriptionInput.value = '';
+        
+//     } else {
+//         alert('Please add all data!')
+//     }
+// }
+
+const addDataToStorage = (e) => {
     e.preventDefault()
 
+    const dataType = e.target.id;
     if(dateInput.value != '' && amountInput.value != '' && descriptionInput.value != '') {
+        e.target.setAttribute('data-dismiss',"modal")
         const id = Math.floor(Math.random() * 100000000000);
         const expenseInfo = {
             id,
-            type: 'expense',
+            type: dataType,
             date: dateInput.value,
             amount: Number.parseInt(amountInput.value),
             description: descriptionInput.value
@@ -119,29 +167,13 @@ const addExpenseToStorage = (e) => {
         alert('Please add all data!')
     }
 }
-const addDepositToStorage = (e) => {
-    e.preventDefault()
-    if(dateInput.value != '' && amountInput.value != '' && descriptionInput.value != '') {
-        const id = Math.floor(Math.random() * 10000);
-        const depositInfo = {
-            id,
-            type: 'deposit',
-            date: dateInput.value,
-            amount: Number.parseInt(amountInput.value),
-            description: descriptionInput.value
-        }
-        MAIN_STORAGE.unshift(depositInfo);
-    
-        localStorage.setItem('mainStorage', JSON.stringify(MAIN_STORAGE));
-        updateDashboard();
-        updateTable();
-        dateInput.value = amountInput.value = descriptionInput.value = '';
-    } else {
-        alert('Please add all data!')
-    }
+const showDataAddForm = (e) => {
+    done_btn.id = e.target.id
 }
-expenseBtn.addEventListener('click', addExpenseToStorage);
-depositBtn.addEventListener('click', addDepositToStorage);
+
+done_btn.addEventListener('click', e => addDataToStorage(e));
+depositBtn.addEventListener('click', e => showDataAddForm(e));
+expenseBtn.addEventListener('click', e => showDataAddForm(e));
 
 // Table update
 let typeFiltered = [];
@@ -168,14 +200,15 @@ const updateTable = () => {
     allData.forEach(data => {
             const { id, date, type, amount, description } = data;
             html += `
-                    <tr class=${type === 'expense' ? 'expense disable' : 'deposit disable'}>
-                        <td>${date}</td>
-                        <td>${description}</td>
-                        <td class="text-center">৳ ${amount}</td>
-                        <td><span>
-                        <button class="delete_btn update_btn float-right btn btn-sm px-4 py-2 mr-2" data-id='${id}'>Delete</button>
-                        <button class="edit_btn update_btn float-right btn btn-sm px-4 py-2 mr-2" data-id='${id}'>Edit</button>
-                    </td>
+                    <tr class='${type}-row'>
+                        <td class='p-md-3 p-2'>${date}</td>
+                        <td  class='p-md-3 p-2'>${description}</td>
+                        <td class="text-center p-md-3 p-2">৳ ${amount}</td>
+                        <td class='tr-button p-md-3 p-2 '>
+                            <button class="float-right mr-2" data-id='${id}'> <img class='delete_btn update_btn' id='delete_btn' data-toggle="modal" data-target="#changingModel" src="./images/delete.png" alt=""></button>
+                            <button class=" float-right mr-2" data-id='${id}'><img class='edit_btn update_btn' id='edit_btn' data-toggle="modal" data-target="#changingModel" src="./images/edit.png" alt=""></button>
+                        </td>
+                    </tr>
                     `
         })
     tbody.innerHTML = html;
