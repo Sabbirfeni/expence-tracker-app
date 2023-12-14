@@ -20,7 +20,8 @@ delete_btn = document.querySelector('.delete_btn'),
 // modelContainer = document.querySelector('.modal-body');
 depositExpenceModel = document.querySelector('.depositExpenceModel'),
 generalModel = document.querySelector('.generalModel'),
-done_btn = document.querySelector('.done_btn');
+done_btn = document.querySelector('.done_btn'),
+tableTotalAmount = document.querySelector('.table-total-amount');
 
 document.body.addEventListener('click', (e) => {
 
@@ -153,6 +154,13 @@ const filtersData = (timeRange, infoType) => {
 
     infoType === 'expense' ? dataToShow = dataToShow.filter(data => data.type === 'expense') : infoType === 'deposit' ? dataToShow = dataToShow.filter(data => data.type === 'deposit') : ''; 
     timeRange === 'all' ? dataToShow = dataToShow : dataToShow = dataToShow.filter(data => data.date > filterDays);
+    
+    let totalAmount = 0;
+    dataToShow.forEach(data => {
+        totalAmount += Number.parseInt(data.amount);
+    });
+
+    tableTotalAmount.innerText = '৳ ' + totalAmount
 
     return dataToShow;
 }

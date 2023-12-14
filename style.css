@@ -9,6 +9,7 @@
 
 body {
   position: relative;
+  background: #ebebeb;
 }
 
 .expence-tracker-app {
@@ -25,8 +26,8 @@ body {
   }
 }
 
-.sample-color {
-  background-color: #eeeeee;
+.app-name {
+  font-weight: bold;
 }
 
 .data-box-container {
@@ -178,6 +179,12 @@ table  tr > td {
 .deposit-row {
   background: rgb(235, 255, 249);
 }
+
+.tableTotalContainer.hide {
+  display: none;
+}
+
+
 
 .model {
   width: 100%;
