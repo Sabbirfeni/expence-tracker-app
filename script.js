@@ -1,5 +1,5 @@
 // Create main local storage
-!localStorage.getItem('mainStorage') &&  localStorage.setItem('mainStorage', JSON.stringify([])) 
+!localStorage.getItem('mainStorage') && localStorage.setItem('mainStorage', JSON.stringify([])) 
 let MAIN_STORAGE = JSON.parse(localStorage.getItem('mainStorage'));
 
 const dateInput = document.querySelector('#date'),
@@ -23,7 +23,7 @@ generalModel = document.querySelector('.generalModel'),
 done_btn = document.querySelector('.done_btn');
 
 document.body.addEventListener('click', (e) => {
-    console.log(e.target.parentElement)
+
     // Show model to edit
     if(e.target.id == 'edit_btn') {
         const parent = e.target.parentElement;
@@ -31,27 +31,24 @@ document.body.addEventListener('click', (e) => {
         const editableData = MAIN_STORAGE.find(data => data.id == id);
 
         const model = `
-                    <form>
-                        <div class="modal-body">
-                            <div class="form-group">
-                                <label for="amount">Amount</label>
-                                <input type="number" class="form-control" id='updatedAmount' value='${editableData.amount}' placeholder="">
-                            </div>
-                            <div class="form-group">
-                                <label for="amodescriptionunt">Description</label>
-                                <input type="text" class="form-control"  id='updatedDescription' value='${editableData.description}'  placeholder="">
-                            </div>
+                <form>
+                    <div class="modal-body">
+                        <div class="form-group">
+                            <label for="amount">Amount</label>
+                            <input type="number" class="form-control" id='updatedAmount' value='${editableData.amount}' placeholder="">
                         </div>
-                    </form>
-                    <div class="modal-footer">
-                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                        <button type="submit" class="btn btn-primary" id='submitEditedData' data-id='${editableData.id}'>Save</button>
+                        <div class="form-group">
+                            <label for="amodescriptionunt">Description</label>
+                            <input type="text" class="form-control"  id='updatedDescription' value='${editableData.description}'  placeholder="">
+                        </div>
                     </div>
-                        
-
-                       
-                    `
-                    generalModel.innerHTML = model
+                </form>
+                <div class="modal-footer">
+                    <button type="button" class="btn border" data-dismiss="modal">Cancel</button>
+                    <button type="submit" class="btn btn-dark" id='submitEditedData' data-id='${editableData.id}'>Save</button>
+                </div>
+                `
+                generalModel.innerHTML = model
     }
     // Save edited data
     if(document.querySelector('#submitEditedData'))  {
@@ -87,8 +84,8 @@ document.body.addEventListener('click', (e) => {
                             <h4>Are you sure?</h4>
                         </div>
                         <div class="modal-footer">
-                            <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancel</button>
-                            <button class="btn btn-primary" id='delete' data-id='${editableData.id}'>Yes</button>
+                            <button type="button" class="btn border" data-dismiss="modal">Cancel</button>
+                            <button class="btn btn-dark" id='delete' data-id='${editableData.id}'>Yes</button>
                         </div>
                     </div>
                     `
@@ -109,40 +106,7 @@ document.body.addEventListener('click', (e) => {
             updateDashboard();
         })
     }
-
-
-    // if(document.querySelector('#cancelEdit'))  {
-    //     const cancelEdit = document.querySelector('#cancelEdit');
-    //     cancelEdit.addEventListener('click', () => {
-    //         modelContainer.classList.remove('active')
-    //     })
-    // }
-
  })
-
-//  const addDepositToStorage = (e) => {
-//     console.log(e)
-//     e.preventDefault()
-//     if(dateInput.value != '' && amountInput.value != '' && descriptionInput.value != '') {
-//         const id = Math.floor(Math.random() * 10000);
-//         const depositInfo = {
-//             id,
-//             type: 'deposit',
-//             date: dateInput.value,
-//             amount: Number.parseInt(amountInput.value),
-//             description: descriptionInput.value
-//         }
-//         MAIN_STORAGE.unshift(depositInfo);
-    
-//         localStorage.setItem('mainStorage', JSON.stringify(MAIN_STORAGE));
-//         updateDashboard();
-//         updateTable();
-//         dateInput.value = amountInput.value = descriptionInput.value = '';
-        
-//     } else {
-//         alert('Please add all data!')
-//     }
-// }
 
 const addDataToStorage = (e) => {
     e.preventDefault()
@@ -203,7 +167,7 @@ const updateTable = () => {
                     <tr class='${type}-row'>
                         <td class='p-md-3 p-2'>${date}</td>
                         <td  class='p-md-3 p-2'>${description}</td>
-                        <td class="text-center p-md-3 p-2">৳ ${amount}</td>
+                        <td class="text-left p-md-3 p-2">৳ ${amount}</td>
                         <td class='tr-button p-md-3 p-2 '>
                             <button class="float-right mr-2" data-id='${id}'> <img class='delete_btn update_btn' id='delete_btn' data-toggle="modal" data-target="#changingModel" src="./images/delete.png" alt=""></button>
                             <button class=" float-right mr-2" data-id='${id}'><img class='edit_btn update_btn' id='edit_btn' data-toggle="modal" data-target="#changingModel" src="./images/edit.png" alt=""></button>
@@ -212,11 +176,6 @@ const updateTable = () => {
                     `
         })
     tbody.innerHTML = html;
-
-
-
-
-
 
 
 
@@ -254,122 +213,9 @@ const updateDashboard = () => {
         expenseSum += Number.parseInt(data.amount);
     });
 
-    totalEarnings.innerText = `৳${totalDeposit}`;
-    totalExpense.innerText = `৳${expenseSum}`;
-    currentBalance.innerText = `৳${totalDeposit - expenseSum}`;
+    totalEarnings.innerText = `৳ ${totalDeposit}`;
+    totalExpense.innerText = `৳ ${expenseSum}`;
+    currentBalance.innerText = `৳ ${totalDeposit - expenseSum}`;
 }
 updateDashboard();
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-// Previous project
-// let currentBalance = document.getElementById('balance');
-// let totalIncome = document.getElementById('totalIncome');
-// let totalExpense = document.getElementById('totalExpense');
-
-// let addIncomeBtn = document.getElementById('addIncome');
-// let addExpenseBtn = document.getElementById('addExpense');
-
-// let historyContainer = document.getElementById('transactionHistory');
-// let date = new Date().getDate();
-// let getMonth = new Date().getMonth();
-// let getFullYear = new Date().getFullYear();
-
-// let fullDate = date + '/' + getMonth + '/' + getFullYear;
-
-// let updateBalance = 0;
-// let updateExpense = 0;
-
-// // Event Listener for Adding income
-// addIncomeBtn.addEventListener('click', () => {
-
-//     let transactionName = document.getElementById('transactionName');
-//     let transactionAmount = document.getElementById('transactionAmount');
-
-//     if(transactionName.value !== '' && transactionAmount.value !== 0) {
-//         let dateContainer = document.createElement('span');
-//         let transactionNameHistory = document.createElement('span');
-//         let transactionAmountHistory = document.createElement('span');
-//         transactionAmountHistory.classList.add('incomeAdd');
-    
-//         dateContainer.innerText = fullDate;
-//         transactionNameHistory.innerText = transactionName.value;
-//         transactionAmountHistory.innerText = '$ ' + transactionAmount.value;
-    
-//         historyContainer.appendChild(dateContainer);
-//         historyContainer.appendChild(transactionNameHistory);
-//         historyContainer.appendChild(transactionAmountHistory);
-//         historyContainer.appendChild(document.createElement('br'));
-        
-//         updateBalance += Number(transactionAmount.value);
-    
-//         currentBalance.innerText = updateBalance;
-//         totalIncome.innerText = updateBalance;
-    
-//         transactionName.value = '';
-//         transactionAmount.value = '';
-//     }
-// })
-
-
-// // Event Listener for Adding income
-// addExpenseBtn.addEventListener('click', () => {
-//     let transactionName = document.getElementById('transactionName');
-//     let transactionAmount = document.getElementById('transactionAmount');
-
-//     let dateContainer = document.createElement('span');
-//     let transactionNameHistory = document.createElement('span');
-//     let transactionAmountHistory = document.createElement('span');
-//     transactionAmountHistory.classList.add('expenseAdd');
-
-//     dateContainer.innerText = fullDate;
-//     transactionNameHistory.innerText = transactionName.value;
-//     transactionAmountHistory.innerText = '$ ' + transactionAmount.value;
-
-//     historyContainer.appendChild(dateContainer);
-//     historyContainer.appendChild(transactionNameHistory);
-//     historyContainer.appendChild(transactionAmountHistory);
-//     historyContainer.appendChild(document.createElement('br'));
-
-//     updateExpense += Number(transactionAmount.value);
-//     updateBalance -= Number(transactionAmount.value);
-
-//     currentBalance.innerText = updateBalance;
-//     totalExpense.innerText = updateExpense;
-
-//     transactionName.value = '';
-//     transactionAmount.value = '';
-// })
-
 

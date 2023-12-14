@@ -9,11 +9,10 @@
 
 body {
   position: relative;
-  background-color: #000;
 }
 
 .expence-tracker-app {
-  /* background-color: #d1d1d1; */
+
 }
 
 .main-container {
@@ -38,24 +37,36 @@ body {
   flex: 1;
   border-radius: 10px;
   width: 100%;
-  /* box-shadow: 0px 7px 55px 5px rgba(125,125,125,0.22);
-  -webkit-box-shadow: 0px 7px 55px 5px rgba(125,125,125,0.22);
-  -moz-box-shadow: 0px 7px 55px 5px rgba(125,125,125,0.22); */
-  /* border: 1px solid rgb(202, 202, 202); */
+  background: white;
+  cursor: pointer;
+  box-shadow: 0px 4px 20px 5px rgba(212,212,212,0.75);
+  -webkit-box-shadow: 0px 4px 20px 5px rgba(212,212,212,0.75);
+  -moz-box-shadow: 0px 4px 20px 5px rgba(212,212,212,0.75);
+  transition: 0.3s ease;
 }
 
-.left-box {
-  background-color: #ddf0f1;
+.data-box-container > div:hover {
+  background: #000;
+  color: #fff;
 }
 
-.middle-box {
-  background-color: #f8eee2;
+
+.earning-black, .earning-black, .current-balance-blackImg {
+  /* transition: 0.3s ease; */
 }
 
-.right-box {
-  background-color: #eef0fa;
-  
+.left-box:hover .earning-black {
+  display: none;
 }
+
+.middle-box:hover .expence-blackImg {
+  display: none;
+}
+
+.right-box:hover .current-balance-blackImg {
+  display: none;
+}
+
 
 .data-box-container > div h2 {
   font-size: 28px;
@@ -91,37 +102,35 @@ body {
 }
 
 .activity-container {
-  background-color: #ddf0f1;
+  background-color: #fff;
   border-radius: 10px;
-  /* box-shadow: 0px 7px 55px 5px rgba(125,125,125,0.22);
-  -webkit-box-shadow: 0px 7px 55px 5px rgba(125,125,125,0.22);
-  -moz-box-shadow: 0px 7px 55px 5px rgba(125,125,125,0.22); */
+  box-shadow: 0px 4px 20px 5px rgba(212,212,212,0.75);
+  -webkit-box-shadow: 0px 4px 20px 5px rgba(212,212,212,0.75);
+  -moz-box-shadow: 0px 4px 20px 5px rgba(212,212,212,0.75);
 }
 
 .activity-bar select, .activity-container button {
   border: none;
   border-radius: 5px;
   font-size: 14px;
+  cursor: pointer;
 }
 
 .activity-bar select, .action-box button {
-  background-color: #c4eaee;
-
-}
-
-.activity-bar select, .action-box button {
-  background-color: #c4eaee;
+  background-color: #fff;
+  box-shadow: 0px 4px 20px 5px rgba(212,212,212,0.75);
+  -webkit-box-shadow: 0px 4px 20px 5px rgba(212,212,212,0.75);
+  -moz-box-shadow: 0px 4px 20px 5px rgba(212,212,212,0.75);
+  transition: 0.3s ease;
 }
 
 .activity-bar > div {
   flex: 1;
 }
 
-.action-box button:hover {
-  background-color: #b9e6eb;
-  box-shadow: 1px 6px 14px -1px rgba(212,212,212,0.75);
-  -webkit-box-shadow: 1px 6px 14px -1px rgba(212,212,212,0.75);
-  -moz-box-shadow: 1px 6px 14px -1px rgba(212,212,212,0.75);
+.action-box button:hover, .activity-bar select:hover {
+  background-color: #000;
+  color: #fff;
 }
 
 @media only screen and (max-width: 600px) {
@@ -140,14 +149,12 @@ table  tr > td {
   }
 }
 
-
 .tr-button button img {
   width: 20px;
   height: 20px;
   cursor: pointer;
   transition: 0.3s;
 }
-
 
 .tr-button button img:hover {
   transform: scale(1.1);
@@ -165,9 +172,12 @@ table  tr > td {
 }
 
 .expense-row {
-  background-color: rgb(255, 229, 229);
+  background-color: rgb(255, 238, 238);
 }
 
+.deposit-row {
+  background: rgb(235, 255, 249);
+}
 
 .model {
   width: 100%;
@@ -179,9 +189,6 @@ table  tr > td {
   position: absolute;
   z-index: 2;
  }
- /* .model.active {
-  display: flex;
- } */
 
  .depositExpenceModel.active {
   display: flex;
@@ -216,269 +223,3 @@ table  tr > td {
   background-color: #1194ff;
   color: #fff;
  }
-
-
-
-/* body {
-  background-color: black;
-  color: white;
-}
-.main {
-    min-height: 100vh;
-}
-.card {
-    background-color: #3858c2;
-    box-shadow: 0 15px 25px #00000038;
-}
-.shadow {
-    box-shadow: 0 15px 25px #00000038;
-}
-
-.login-box {
-
-    width: 100%;
-    background: #3858c2;
-    box-sizing: border-box;
-    box-shadow: 0 15px 25px #00000038;
-    border-radius: 10px;
-  }
-  
-  .login-box .user-box {
-    position: relative;
-  }
-  
-  .login-box .user-box input {
-    width: 100%;
-    padding: 10px 0;
-    font-size: 16px;
-    color: #fff;
-    margin-bottom: 30px;
-    border: none;
-    border-bottom: 1px solid #fff;
-    outline: none;
-    background: transparent;
-  }
-  
-  .login-box .user-box label {
-    position: absolute;
-    top: 0;
-    left: 0;
-    padding: 10px 0;
-    font-size: 16px;
-    color: #fff;
-    pointer-events: none;
-    transition: .5s;
-  }
-  
-  .login-box .user-box input:focus ~ label,
-  .login-box .user-box input:valid ~ label {
-    top: -20px;
-    left: 0;
-    color: #d6d6d6;
-    font-size: 12px;
-  }
-  
-  .expense_btn,.deposit_btn {
-    position: relative;
-    display: inline-block;
-    padding: 10px 20px;
-    color: #ffffff;
-    background: #284196;
-    font-size: 16px;
-    text-decoration: none;
-    text-transform: uppercase;
-    overflow: hidden;
-    transition: .5s;
-    margin: 5px;
-    letter-spacing: 4px;
-    border-radius: 5px;
-    border: none;
-    cursor: pointer;
-  }
-  
-  .deposit_btn:hover {
-    background: #03f40f;
-    color: #fff;
-    border-radius: 5px;
-    box-shadow: 0 0 5px #03f40f,
-                0 0 25px #03f40f,
-                0 0 50px #03f40f,
-                0 0 100px #03f40f;
-  }
-  .expense_btn:hover {
-    background: #ee4646;
-    color: #fff;
-    border-radius: 5px;
-    box-shadow: 0 0 5px #ee4646,
-                0 0 25px #ee4646,
-                0 0 50px #ee4646,
-                0 0 100px #ee4646;
-  }
-  
-  .login-box button span {
-    position: absolute;
-    display: block;
-  }
-
-  
-  .login-box button span:nth-child(1) {
-    bottom: 2px;
-    left: -100%;
-    width: 100%;
-    height: 2px;
-    background: linear-gradient(90deg, transparent, #03f40f);
-    animation: btn-anim1 2s linear infinite;
-  }
-
-    input[type=date]:required:invalid::-webkit-datetime-edit {
-        color: transparent;
-    }
-    input[type=date]:focus::-webkit-datetime-edit {
-        color: black !important;
-    }
-
-
-
-
-    .thead {
-        background-color: #3858c2;
-        color: #fff;
-    }
-
-
-.update_btn {
-    display: inline-block;
-    width: 50px;
-    height: 25px;
-    font-size: 12px;
-    border-radius: 3px;
-    cursor: pointer;
-    color: #3858c2;
-    border: 1px solid #3858c2;
-    position: relative;
-    overflow: hidden;
-    transition: all 0.5s ease-in;
-    z-index: 1;
-   }
-   
-   .update_btn::before,
-   .update_btn::after {
-    content: '';
-    position: absolute;
-    top: 0;
-    width: 0;
-    height: 100%;
-    transform: skew(15deg);
-    transition: all 0.5s;
-    overflow: hidden;
-    z-index: -1;
-   }
-   
-   .edit_btn::before {
-    left: -10px;
-    background: #3858c2;
-    margin-left: 4px;
-   }
-   .edit_btn {
-    margin-right: 4px;
-   }
-   @media only screen and (max-width: 600) {
-    .edit_btn {
-        margin-right: 0px;
-    }
-   }
-   .edit_btn::after {
-    right: -10px;
-    background: #3858c2;
-   }
-   .delete_btn {
-    transition: 0.2s border;
-   }
-   .delete_btn:hover {
-    border: 1px solid #c2521e;
-   }
-   .delete_btn::before {
-    left: -10px;
-    background: #c2521e;
-   }
-
-   .delete_btn::after {
-    right: -10px;
-    background: #c2521e;
-   }
-   
-   .update_btn:hover::before,
-   .update_btn:hover::after {
-    width: 75%;
-   }
-   
-   .update_btn:hover span {
-    color: #ffffff;
-    transition: 0.3s;
-   }
-   
-   .update_btn {
-    color: #3858c2;
-    font-size: 12px;
-    transition: all 0.3s ease-in;
-   }
-   .update_btn:hover {
-    color: #ffffff;
-   }
-   
-   .expense {
-    color: red;
-   }
-   .deposit {
-    color: green;
-   }
-
-   .disable input {
-    pointer-events: none;
-   }
-
-
-   .model {
-    width: 100%;
-    height: 100vh;
-    background-color: #000000c7;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    display: none;
-    position: absolute;
-    z-index: 2;
-   }
-   .model.active {
-    display: flex;
-   }
-
-   .model .card {
-    width: 300px;
-   }
-   .model input {
-      margin-bottom: 5px;
-      padding: 8px;
-      border-radius: 5px;
-      border: none;
-   }
-
-   .model_btn{
-    border: none;
-    padding: 10px;
-    margin-bottom: 5px;
-    cursor: pointer;
-    border-radius: 5px;
-   }
-
-   .model #submitEditedData {
-    margin-top: 10px;
-    background-color: #284196;
-    color: #fff;
-    transition: 0.3s;
-   }
-
-   .model #submitEditedData:hover {
-    background-color: #1194ff;
-    color: #fff;
-   } */
