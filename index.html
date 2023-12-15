@@ -51,19 +51,21 @@
 </div>
 
 
-<div class="expence-tracker-app container mt-3 mt-md-5">
+<div class="expence-tracker-app container mt-4 mt-md-5">
   <div class="main-container d-flex flex-column">
-    <div class="activity-bar d-flex flex-md-row flex-column">
+    
+    <div class="activity-bar d-flex align-items-center">
       <!-- App name -->
-      <h3 class="app-name m-0">Track expences</h2>
+      <h3 class="title m-0">Track expences</h2>
       <!-- Action box -->
-      <div class="action-box flex-fill d-flex justify-content-md-end justify-content-center mt-md-0 mt-2">
+      <div class="action-box flex-fill d-flex justify-content-end  mt-md-0">
         <div class="">
-          <button type="button" class="btn btn-sm px-3 px-md-4 py-2 mr-2 deposit_btn " id="deposit" data-toggle="modal" data-target="#exampleModalLong">Deposit</button>
-          <button type="button" class="btn btn-sm px-3 px-md-4 py-2  expense_btn" id="expense" data-toggle="modal" data-target="#exampleModalLong">Expence</button>
+          <button type="button" class="btn btn-sm px-2 px-md-4 py-2 mr-1 deposit_btn " id="deposit" data-toggle="modal" data-target="#exampleModalLong">Deposit</button>
+          <button type="button" class="btn btn-sm px-2 px-md-4 py-2  expense_btn" id="expense" data-toggle="modal" data-target="#exampleModalLong">Expence</button>
         </div>
       </div>
     </div>
+
     <div class="data-box-container d-flex align-items-center flex-lg-row flex-column">
       <div class="left-box sample-color p-4">
         <div class="d-flex align-items-center justify-content-between">
@@ -109,9 +111,14 @@
     </div>
 
     <!-- Activity bar -->
-    <div class="activity-bar d-flex flex-md-row flex-column">
+    <div class="activity-bar d-flex flex-md-row flex-column mt-2 mt-md-0">
+      <!-- Table title -->
+      <div>
+        <h3 class="title m-0">Expence table</h2>
+      </div>
+
       <!-- Filter box -->
-      <div class="d-flex align-items-center justify-content-md-start justify-content-center">
+      <div class="d-flex align-items-center justify-content-start justify-content-md-end mt-2 mt-md-0">
         <select class="form-select p-2 mr-2 infoType" aria-label="Default select example">
           <option value="all">All</option>
           <option value="expense">Expense</option>
@@ -125,17 +132,9 @@
           <option value="365">Last Year</option>
         </select>
       </div>
-      <!-- Action box -->
-      <div class="action-box flex-fill d-flex justify-content-md-end justify-content-center mt-md-0 mt-2">
-        <div class="">
-          <button type="button" class="btn btn-sm px-3 px-md-4 py-2 mr-2 deposit_btn " id="deposit" data-toggle="modal" data-target="#exampleModalLong">Deposit</button>
-          <button type="button" class="btn btn-sm px-3 px-md-4 py-2  expense_btn" id="expense" data-toggle="modal" data-target="#exampleModalLong">Expence</button>
-        </div>
-
-      </div>
     </div>
-    <div class="activity-container px-2 p-lg-4">
 
+    <div class="activity-container px-2 p-lg-4">
       <!-- Data table -->
       <div class="data-table">
         <div class="row">

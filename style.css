@@ -26,8 +26,15 @@ body {
   }
 }
 
-.app-name {
+.title {
   font-weight: bold;
+}
+
+
+@media only screen and (max-width: 600px) {
+  .title {
+    font-size: 22px;
+  }
 }
 
 .data-box-container {
